@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+
+TARGET=$(cat /etc/hosts | grep -i $1 | grep -v 'localhost' | awk -F"[\t ]" '{print $1}')
+
+CUR=$(pwd)
+CUR_DIR=$(pwd | awk -F "[/]" '{print $NF}')
+
+cd ..
+scp -r -i /root/.ssh/crenet-pri.pem ./$CUR_DIR $TARGET:
+cd $CUR

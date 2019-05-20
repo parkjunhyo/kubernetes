@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+TARGET=$1
+
+ssh -i /root/.ssh/crenet-pri.pem $TARGET
+
